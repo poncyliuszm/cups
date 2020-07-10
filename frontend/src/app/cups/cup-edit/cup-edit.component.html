@@ -1,0 +1,42 @@
+<div>
+
+  <button [routerLink]="['/cups']" color="primary" mat-raised-button style="margin-left: 15%; margin-top: 2%">Cofnij
+  </button>
+
+  <mat-card>
+    <form>
+      <mat-form-field>
+        <mat-label>Nazwa</mat-label>
+        <input [ngModel]="cup.name" disabled matInput name="name" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select (selectionChange)="getLastNameOfCategory($event)" [(ngModel)]="cup.category"
+                    [compareWith]="compareObjects" name="category" placeholder="Kategoria">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Opis</mat-label>
+        <textarea [(ngModel)]="this.cup.description" matInput name="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field style="margin-top: 30px;">
+        <mat-label>Rozwiązanie</mat-label>
+        <textarea [(ngModel)]="this.cup.solution" matInput name="solution"></textarea>
+      </mat-form-field>
+
+      <button (click)="save()" color="primary" mat-raised-button
+              style="border-radius: 2px; margin: auto; display: flex; width: 15%; text-align: center">
+        Zapisz
+      </button>
+
+
+    </form>
+  </mat-card>
+
+
+</div>

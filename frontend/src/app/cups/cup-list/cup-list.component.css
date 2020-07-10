@@ -1,0 +1,9 @@
+table {
+  width: 80%;
+  margin: auto;
+}
+
+mat-card {
+  margin-top: 50px;
+  height: 75%;
+}
