@@ -34,4 +34,8 @@ export class CupService {
   deleteCup(cup: any) {
     return this.http.delete(environment.appContext + '/cups/' + cup.id);
   }
+
+  getRepeatCups() {
+    return this.http.get(environment.appContext + '/cups/repeat');
+  }
 }
