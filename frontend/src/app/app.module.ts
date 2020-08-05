@@ -16,7 +16,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatButtonModule} from "@angular/material/button";
 import {CupAddComponent} from './cups/cup-add/cup-add.component';
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
 import {CupPreviewComponent} from "./cups/cup-preview/cup-preview.component";
@@ -24,6 +24,7 @@ import {CupEditComponent} from "./cups/cup-edit/cup-edit.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {PractiseComponent} from './practise/practise.component';
 import {SettingsComponent} from './settings/settings.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import {SettingsComponent} from './settings/settings.component';
     FormsModule,
     MatSnackBarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatStepperModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

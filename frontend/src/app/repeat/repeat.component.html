@@ -1,3 +1,82 @@
 <mat-card>
-  test
+  <mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Nie udzielono odpowiedzi.">
+      <form [formGroup]="firstFormGroup">
+        <div class="center-form">
+          <ng-template matStepLabel>Pucharek nr 1</ng-template>
+          <mat-form-field>
+            <mat-label>{{repeatCups[0].description}}</mat-label>
+            <textarea formControlName="firstCtrl" matInput required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Nie udzielono odpowiedzi.">
+      <form [formGroup]="secondFormGroup">
+        <div class="center-form">
+          <ng-template matStepLabel>Pucharek nr 2</ng-template>
+          <mat-form-field>
+            <mat-label>{{repeatCups[1].description}}</mat-label>
+            <textarea formControlName="secondCtrl" matInput required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup" errorMessage="Nie udzielono odpowiedzi.">
+      <form [formGroup]="thirdFormGroup">
+        <div class="center-form">
+          <ng-template matStepLabel>Pucharek nr 3</ng-template>
+          <mat-form-field>
+            <mat-label>{{repeatCups[2].description}}</mat-label>
+            <textarea formControlName="thirdCtrl" matInput required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup" errorMessage="Nie udzielono odpowiedzi.">
+      <form [formGroup]="fourthFormGroup">
+        <div class="center-form">
+          <ng-template matStepLabel>Pucharek nr 4</ng-template>
+          <mat-form-field>
+            <mat-label>{{repeatCups[3].description}}</mat-label>
+            <textarea formControlName="fourthCtrl" matInput required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup" errorMessage="Nie udzielono odpowiedzi.">
+      <form [formGroup]="fifthFormGroup">
+        <div class="center-form">
+          <ng-template matStepLabel>Pucharek nr 5</ng-template>
+          <mat-form-field>
+            <mat-label>{{repeatCups[4].description}}</mat-label>
+            <textarea formControlName="fifthCtrl" matInput required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
 </mat-card>
