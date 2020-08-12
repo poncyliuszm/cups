@@ -5,8 +5,8 @@
         <div class="center-form">
           <ng-template matStepLabel>Pucharek nr 1</ng-template>
           <mat-form-field>
-            <mat-label>{{repeatCups[0].description}}</mat-label>
-            <textarea formControlName="firstCtrl" matInput required></textarea>
+            <mat-label>{{repeatCups[0]?.description}}</mat-label>
+            <textarea formControlName="answer" matInput required></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperNext>Next</button>
@@ -20,8 +20,8 @@
         <div class="center-form">
           <ng-template matStepLabel>Pucharek nr 2</ng-template>
           <mat-form-field>
-            <mat-label>{{repeatCups[1].description}}</mat-label>
-            <textarea formControlName="secondCtrl" matInput required></textarea>
+            <mat-label>{{repeatCups[1]?.description}}</mat-label>
+            <textarea formControlName="answer" matInput required></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -36,8 +36,8 @@
         <div class="center-form">
           <ng-template matStepLabel>Pucharek nr 3</ng-template>
           <mat-form-field>
-            <mat-label>{{repeatCups[2].description}}</mat-label>
-            <textarea formControlName="thirdCtrl" matInput required></textarea>
+            <mat-label>{{repeatCups[2]?.description}}</mat-label>
+            <textarea formControlName="answer" matInput required></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -52,8 +52,8 @@
         <div class="center-form">
           <ng-template matStepLabel>Pucharek nr 4</ng-template>
           <mat-form-field>
-            <mat-label>{{repeatCups[3].description}}</mat-label>
-            <textarea formControlName="fourthCtrl" matInput required></textarea>
+            <mat-label>{{repeatCups[3]?.description}}</mat-label>
+            <textarea formControlName="answer" matInput required></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -68,12 +68,12 @@
         <div class="center-form">
           <ng-template matStepLabel>Pucharek nr 5</ng-template>
           <mat-form-field>
-            <mat-label>{{repeatCups[4].description}}</mat-label>
-            <textarea formControlName="fifthCtrl" matInput required></textarea>
+            <mat-label>{{repeatCups[4]?.description}}</mat-label>
+            <textarea formControlName="answer" matInput required></textarea>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button (click)="sendAnswers()" mat-button>Zakończ</button>
           </div>
         </div>
       </form>
