@@ -56,17 +56,17 @@ export class CupListComponent implements OnInit {
   }
 
   openDeleteDialog(cup: any) {
-    let dialogRef = this.matDialog.open(DeleteUserDialog, {});
+    let dialogRef = this.matDialog.open(DeleteCupDialog, {});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === true)
-        this.deleteUser(cup);
+        this.deleteCup(cup);
       else
         return;
     });
   }
 
-  deleteUser(cup: any) {
+  deleteCup(cup: any) {
     this.cupService.deleteCup(cup)
       .subscribe(() => {
         this.snackBar.open('Pucharek został usunięty.', 'Zamknij', {duration: 5000});
@@ -92,9 +92,9 @@ export class CupListComponent implements OnInit {
     "  <button mat-button [mat-dialog-close]=\"false\" tabindex=\"-1\">Anuluj</button>\n" +
     "</mat-dialog-actions>"
 })
-export class DeleteUserDialog {
+export class DeleteCupDialog {
 
-  constructor(public dialogRef: MatDialogRef<DeleteUserDialog>,
+  constructor(public dialogRef: MatDialogRef<DeleteCupDialog>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
