@@ -1,0 +1,57 @@
+<mat-card>
+
+  <div style="text-align: -webkit-right;">
+    <button [routerLink]="['/categories/add']" color="primary" mat-raised-button
+            style="justify-content: end; margin-bottom: 2%; margin-right: 15%">Dodaj kategorię
+    </button>
+  </div>
+
+  <table [dataSource]="categoriesDataSource" class="mat-elevation-z8" mat-table>
+
+    <ng-container matColumnDef="select">
+      <th *matHeaderCellDef mat-header-cell scope="col" style="width: 10%">
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [aria-label]="checkboxLabel()"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                      (click)="$event.stopPropagation()"
+                      [aria-label]="checkboxLabel(row)"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lp">
+      <th *matHeaderCellDef mat-header-cell scope="col">Lp.</th>
+      <td *matCellDef="let i = index" mat-cell>{{i + 1}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell scope="col">Nazwa</th>
+      <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef mat-header-cell scope="col" style="width: 17%; text-align: center">Operacje</th>
+      <td *matCellDef="let element" mat-cell style="min-width: 220px;">
+        <button (click)="preview(element)" mat-button>
+          <mat-icon color="primary">info</mat-icon>
+        </button>
+        <button (click)="editCategory(element)" mat-button>
+          <mat-icon style="color: #f0ad4e">edit</mat-icon>
+        </button>
+        <button (click)="openDeleteDialog(element)" mat-button>
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+  </table>
+</mat-card>

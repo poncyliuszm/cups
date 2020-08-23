@@ -13,4 +13,8 @@ export class CategoryService {
   list() {
     return this.http.get(environment.appContext + '/categories')
   }
+
+  deleteCup(id: any) {
+    return this.http.delete(environment.appContext + '/categories/' + id)
+  }
 }

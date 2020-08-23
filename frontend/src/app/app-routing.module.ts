@@ -8,6 +8,10 @@ import {CupPreviewComponent} from "./cups/cup-preview/cup-preview.component";
 import {CupEditComponent} from "./cups/cup-edit/cup-edit.component";
 import {PractiseComponent} from "./practise/practise.component";
 import {SettingsComponent} from "./settings/settings.component";
+import {CategoryListComponent} from "./categories/category-list/category-list.component";
+import {CategoryPreviewComponent} from "./categories/category-preview/category-preview.component";
+import {CategoryAddComponent} from "./categories/category-add/category-add.component";
+import {CategoryEditComponent} from "./categories/category-edit/category-edit.component";
 
 
 const routes: Routes = [
@@ -16,6 +20,10 @@ const routes: Routes = [
   {path: 'cups/preview/:id', component: CupPreviewComponent},
   {path: 'cups/add', component: CupAddComponent},
   {path: 'cups/edit/:id', component: CupEditComponent},
+  {path: 'categories', component: CategoryListComponent},
+  {path: 'categories/preview/:id', component: CategoryPreviewComponent},
+  {path: 'categories/add', component: CategoryAddComponent},
+  {path: 'categories/edit/:id', component: CategoryEditComponent},
   {path: 'practise', component: PractiseComponent},
   {path: 'repeat', component: RepeatComponent},
   {path: 'settings', component: SettingsComponent},

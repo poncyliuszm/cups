@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {CupListComponent, DeleteUserDialog} from './cups/cup-list/cup-list.component';
+import {CupListComponent, DeleteCupDialog} from './cups/cup-list/cup-list.component';
 import {HomeComponent} from './home/home.component';
 import {RepeatComponent} from './repeat/repeat.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -25,6 +25,10 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {PractiseComponent} from './practise/practise.component';
 import {SettingsComponent} from './settings/settings.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import {CategoryListComponent, DeleteCategoryDialog} from './categories/category-list/category-list.component';
+import {CategoryAddComponent} from './categories/category-add/category-add.component';
+import {CategoryEditComponent} from './categories/category-edit/category-edit.component';
+import {CategoryPreviewComponent} from './categories/category-preview/category-preview.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +39,14 @@ import {MatStepperModule} from "@angular/material/stepper";
     CupPreviewComponent,
     CupAddComponent,
     CupEditComponent,
-    DeleteUserDialog,
+    DeleteCupDialog,
+    DeleteCategoryDialog,
     PractiseComponent,
-    SettingsComponent
+    SettingsComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
+    CategoryPreviewComponent
   ],
   imports: [
     BrowserModule,
