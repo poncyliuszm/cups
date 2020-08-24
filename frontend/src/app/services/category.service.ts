@@ -26,7 +26,7 @@ export class CategoryService {
     return this.http.put(environment.appContext + '/categories/' + category.id, category);
   }
 
-  deleteCup(id: any) {
+  deleteCategory(id: any) {
     return this.http.delete(environment.appContext + '/categories/' + id);
   }
 

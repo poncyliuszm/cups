@@ -66,8 +66,8 @@ export class CategoryListComponent implements OnInit {
     });
   }
 
-  deleteCategory(cup: any) {
-    this.categoryService.deleteCup(cup.id)
+  deleteCategory(category: any) {
+    this.categoryService.deleteCategory(category.id)
       .subscribe(() => {
         this.snackBar.open('Kategoria została usunięta.', 'Zamknij', {duration: 5000});
         this.getCategoryList();

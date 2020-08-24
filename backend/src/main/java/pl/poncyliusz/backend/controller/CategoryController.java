@@ -9,6 +9,7 @@ import pl.poncyliusz.backend.dto.category.CategoryListDTO;
 import pl.poncyliusz.backend.dto.category.EditCategoryCommand;
 import pl.poncyliusz.backend.service.category.AddCategoryUseCase;
 import pl.poncyliusz.backend.service.category.CategoryService;
+import pl.poncyliusz.backend.service.category.DeleteCategoryUseCase;
 import pl.poncyliusz.backend.service.category.EditCategoryUseCase;
 
 import javax.validation.Valid;
@@ -22,6 +23,7 @@ public class CategoryController {
     private final CategoryService categoryService;
     private final AddCategoryUseCase addCategoryUseCase;
     private final EditCategoryUseCase editCategoryUseCase;
+    private final DeleteCategoryUseCase deleteCategoryUseCase;
 
     @GetMapping
     public List<CategoryListDTO> list() {
@@ -42,5 +44,10 @@ public class CategoryController {
     @PutMapping("/{id}")
     public void edit(@PathVariable Long id, @RequestBody @Valid EditCategoryCommand editCategoryCommand) {
         editCategoryUseCase.editCategory(id, editCategoryCommand);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        deleteCategoryUseCase.delete(id);
     }
 }
