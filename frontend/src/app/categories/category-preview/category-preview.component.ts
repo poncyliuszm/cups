@@ -38,7 +38,6 @@ export class CategoryPreviewComponent implements OnInit {
       .subscribe((category: any) => {
         this.category = category;
       })
-
   }
 }
 

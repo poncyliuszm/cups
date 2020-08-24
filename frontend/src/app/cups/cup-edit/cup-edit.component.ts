@@ -3,6 +3,7 @@ import {CupService} from "../../services/cup.service";
 import {CategoryService} from "../../services/category.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {UtilsComponent} from "../../utils/utils.component";
 
 @Component({
   selector: 'app-cup-add',
@@ -28,6 +29,7 @@ export class CupEditComponent implements OnInit {
 
   constructor(private cupService: CupService,
               private categoryService: CategoryService,
+              public utilsComponent: UtilsComponent,
               private router: Router,
               private snackBar: MatSnackBar,
               private activatedRoute: ActivatedRoute) {
@@ -51,10 +53,6 @@ export class CupEditComponent implements OnInit {
     } else {
       this.cup.name = this.cupName;
     }
-  }
-
-  compareObjects(o1: any, o2: any): boolean {
-    return o1.id === o2.id;
   }
 
   save() {

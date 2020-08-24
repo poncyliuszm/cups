@@ -12,7 +12,7 @@
 
       <mat-form-field>
         <mat-select (selectionChange)="getLastNameOfCategory($event)" [(ngModel)]="cup.category"
-                    [compareWith]="compareObjects" name="category" placeholder="Kategoria">
+                    [compareWith]="utilsComponent.compareObjects" name="category" placeholder="Kategoria">
           <mat-option *ngFor="let category of categories" [value]="category">
             {{category.name}}
           </mat-option>
