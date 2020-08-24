@@ -3,11 +3,10 @@ package pl.poncyliusz.backend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.poncyliusz.backend.dto.AddCupCommand;
-import pl.poncyliusz.backend.dto.CupDTO;
-import pl.poncyliusz.backend.dto.EditCupCommand;
-import pl.poncyliusz.backend.dto.RepeatCupDTO;
-import pl.poncyliusz.backend.model.Cup;
+import pl.poncyliusz.backend.dto.cup.AddCupCommand;
+import pl.poncyliusz.backend.dto.cup.CupDTO;
+import pl.poncyliusz.backend.dto.cup.EditCupCommand;
+import pl.poncyliusz.backend.dto.cup.RepeatCupDTO;
 import pl.poncyliusz.backend.service.cup.*;
 
 import javax.validation.Valid;

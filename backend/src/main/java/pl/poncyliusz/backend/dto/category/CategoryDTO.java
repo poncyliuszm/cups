@@ -1,21 +1,21 @@
-package pl.poncyliusz.backend.dto;
+package pl.poncyliusz.backend.dto.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.poncyliusz.backend.model.Cup;
+import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.utils.ObjectMapperUtils;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RepeatCupDTO {
+public class CategoryDTO {
     private Long id;
     private String name;
-    private CategoryDTO category;
     private String description;
+    private CategoryDTO parent;
 
-    public RepeatCupDTO(Cup cup) {
-        ObjectMapperUtils.map(cup, this);
+    public CategoryDTO(Category category) {
+        ObjectMapperUtils.map(category, this);
     }
 }

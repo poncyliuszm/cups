@@ -2,11 +2,7 @@ package pl.poncyliusz.backend.service.cup;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.poncyliusz.backend.dto.AddCupCommand;
-import pl.poncyliusz.backend.exceptions.CategoryNotFoundException;
-import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.model.Cup;
-import pl.poncyliusz.backend.repository.CategoryRepository;
 import pl.poncyliusz.backend.repository.CupRepository;
 
 import java.time.LocalDateTime;

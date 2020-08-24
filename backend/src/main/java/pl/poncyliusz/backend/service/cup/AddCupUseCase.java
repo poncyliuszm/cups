@@ -2,8 +2,7 @@ package pl.poncyliusz.backend.service.cup;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import pl.poncyliusz.backend.dto.AddCupCommand;
+import pl.poncyliusz.backend.dto.cup.AddCupCommand;
 import pl.poncyliusz.backend.exceptions.CategoryNotFoundException;
 import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.model.Cup;

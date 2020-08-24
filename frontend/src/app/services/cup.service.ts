@@ -26,7 +26,6 @@ export class CupService {
     return this.http.post(environment.appContext + '/cups', cup);
   }
 
-
   editCup(cup: any) {
     return this.http.put(environment.appContext + '/cups/' + cup.id, cup);
   }

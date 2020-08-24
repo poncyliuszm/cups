@@ -36,7 +36,6 @@ export class CupAddComponent implements OnInit {
       .subscribe((data: any) => {
         this.cup.name = data;
       })
-
   }
 
   save() {

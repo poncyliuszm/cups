@@ -1,1 +1,27 @@
-<p>category-preview works!</p>
+<div>
+
+  <button [routerLink]="['/categories']" color="primary" mat-raised-button style="margin-left: 15%; margin-top: 2%">
+    Cofnij
+  </button>
+
+  <mat-card>
+    <form>
+      <mat-form-field>
+        <mat-label>Nazwa</mat-label>
+        <input [ngModel]="category.name" disabled matInput name="name" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Opis</mat-label>
+        <textarea [ngModel]="this.category.description" disabled matInput name="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="category.parent" style="margin-top: 30px;">
+        <mat-label>Rodzic</mat-label>
+        <input [ngModel]="this.category.parent?.name" disabled matInput name="parent"/>
+      </mat-form-field>
+
+    </form>
+  </mat-card>
+
+</div>

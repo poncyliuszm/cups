@@ -11,10 +11,20 @@ export class CategoryService {
   }
 
   list() {
-    return this.http.get(environment.appContext + '/categories')
+    return this.http.get(environment.appContext + '/categories');
+  }
+
+  getCategory(id: any) {
+    return this.http.get(environment.appContext + '/categories/' + id);
+  }
+
+  addCategory(category: any) {
+    return this.http.post(environment.appContext + '/categories', category);
   }
 
   deleteCup(id: any) {
-    return this.http.delete(environment.appContext + '/categories/' + id)
+    return this.http.delete(environment.appContext + '/categories/' + id);
   }
+
+
 }

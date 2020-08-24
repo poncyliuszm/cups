@@ -1,4 +1,4 @@
-package pl.poncyliusz.backend.dto;
+package pl.poncyliusz.backend.dto.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

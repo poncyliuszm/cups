@@ -91,3 +91,6 @@ create table cups(
 
 --changeset mponcyli:7
 alter table cups add column status boolean;
+
+--changeset mponcyli:8
+alter table categories add column status boolean;

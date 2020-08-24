@@ -1,1 +1,36 @@
-<p>category-add works!</p>
+<div>
+
+  <button [routerLink]="['/categories']" color="primary" mat-raised-button style="margin-left: 15%; margin-top: 2%">
+    Cofnij
+  </button>
+
+  <mat-card>
+    <form>
+      <mat-form-field>
+        <mat-label>Nazwa</mat-label>
+        <input [(ngModel)]="category.name" matInput name="name" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Opis</mat-label>
+        <textarea [(ngModel)]="category.description" matInput name="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="category.parent" style="margin-top: 30px;">
+        <mat-select [(ngModel)]="category.parent"
+                    name="parent" placeholder="Rodzic">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <button (click)="save()" color="primary" mat-raised-button
+              style="border-radius: 2px; margin: auto; display: flex; width: 15%; text-align: center">Dodaj
+      </button>
+
+    </form>
+  </mat-card>
+
+</div>
