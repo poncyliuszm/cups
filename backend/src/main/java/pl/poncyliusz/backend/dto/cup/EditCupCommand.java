@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EditCupCommand {
+
     @NotBlank
     private String name;
 

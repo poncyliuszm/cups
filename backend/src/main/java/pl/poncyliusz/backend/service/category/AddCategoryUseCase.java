@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.poncyliusz.backend.dto.category.AddCategoryCommand;
 import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.repository.CategoryRepository;
-import pl.poncyliusz.backend.utils.ObjectMapperUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -15,12 +14,19 @@ public class AddCategoryUseCase {
 
     public void addCategory(AddCategoryCommand addCategoryCommand) {
         Category category = new Category();
+
         category.setName(addCategoryCommand.getName());
         category.setDescription(addCategoryCommand.getDescription());
-        category.setParent(ObjectMapperUtils.map(addCategoryCommand.getParent(), Category.class));
         category.setActive(true);
 
+        setParent(addCategoryCommand, category);
+
         categoryRepository.save(category);
+    }
+
+    private void setParent(AddCategoryCommand addCategoryCommand, Category category) {
+        Category parent = categoryRepository.findById(addCategoryCommand.getParent().getId()).orElseThrow(() -> new RuntimeException("Nie znaleziono kategorii (rodzica)."));
+        category.setParent(parent);
     }
 
 }

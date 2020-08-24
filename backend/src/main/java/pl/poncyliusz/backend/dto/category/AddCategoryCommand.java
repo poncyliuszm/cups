@@ -14,5 +14,5 @@ public class AddCategoryCommand {
     @Size(max = 2000)
     private String description;
 
-    private AddCategoryCommand parent;
+    private CategoryDTO parent;
 }

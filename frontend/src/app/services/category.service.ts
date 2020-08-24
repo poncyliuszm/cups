@@ -22,6 +22,10 @@ export class CategoryService {
     return this.http.post(environment.appContext + '/categories', category);
   }
 
+  editCategory(category: any) {
+    return this.http.put(environment.appContext + '/categories/' + category.id, category);
+  }
+
   deleteCup(id: any) {
     return this.http.delete(environment.appContext + '/categories/' + id);
   }
