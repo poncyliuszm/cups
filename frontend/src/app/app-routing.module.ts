@@ -15,6 +15,7 @@ import {CategoryEditComponent} from "./categories/category-edit/category-edit.co
 
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'cups', component: CupListComponent},
   {path: 'cups/preview/:id', component: CupPreviewComponent},
