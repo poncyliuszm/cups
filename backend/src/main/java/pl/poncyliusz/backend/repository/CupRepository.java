@@ -12,6 +12,6 @@ public interface CupRepository extends JpaRepository<Cup, Long> {
 
     List<Cup> findByIsActive(boolean b);
 
-    @Query("select c from Cup c order by random()")
+    @Query("select c from Cup c where c.isActive = true order by random()")
     List<Cup> getRepeatCups(Pageable pageable);
 }
