@@ -24,6 +24,7 @@ public class CupService {
 
     public List<CupDTO> findAll() {
         List<Cup> cups = cupRepository.findByIsActive(true);
+        cups.sort(Comparator.comparing(Cup::getId));
         return ObjectMapperUtils.mapAll(cups, CupDTO.class);
     }
 
