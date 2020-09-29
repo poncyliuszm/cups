@@ -40,6 +40,5 @@ export class CupPreviewComponent implements OnInit {
       .subscribe((cup: any) => {
         this.cup = cup;
       })
-
   }
 }

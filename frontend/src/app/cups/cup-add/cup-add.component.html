@@ -26,7 +26,8 @@
 
       <mat-form-field style="margin-top: 30px;">
         <mat-label>Rozwiązanie</mat-label>
-        <textarea [(ngModel)]="this.cup.solution" matInput name="solution"></textarea>
+        <textarea [(ngModel)]="this.cup.solution" cdkAutosizeMaxRows="50" cdkTextareaAutosize matInput
+                  name="solution"></textarea>
       </mat-form-field>
 
       <button (click)="save()" color="primary" mat-raised-button
