@@ -18,6 +18,6 @@ public class AddCupCommand {
     @Size(max = 2000)
     private String description;
 
-    @Size(max = 2000)
+    @Size(max = 5000)
     private String solution;
 }
