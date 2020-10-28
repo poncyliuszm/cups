@@ -16,7 +16,7 @@
         <textarea [ngModel]="this.category.description" disabled matInput name="description"></textarea>
       </mat-form-field>
 
-      <mat-form-field *ngIf="category.parent" style="margin-top: 30px;">
+      <mat-form-field style="margin-top: 30px;">
         <mat-label>Rodzic</mat-label>
         <input [ngModel]="this.category.parent?.name" disabled matInput name="parent"/>
       </mat-form-field>
