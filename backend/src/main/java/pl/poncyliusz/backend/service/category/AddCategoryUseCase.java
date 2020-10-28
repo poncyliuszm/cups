@@ -19,8 +19,9 @@ public class AddCategoryUseCase {
         category.setDescription(addCategoryCommand.getDescription());
         category.setActive(true);
 
-        setParent(addCategoryCommand, category);
-
+        if (addCategoryCommand.getParent().getId() != null) {
+            setParent(addCategoryCommand, category);
+        }
         categoryRepository.save(category);
     }
 
