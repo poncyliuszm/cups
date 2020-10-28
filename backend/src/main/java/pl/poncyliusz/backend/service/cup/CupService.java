@@ -50,6 +50,4 @@ public class CupService {
         return lastNameOfCategory.concat(lastIdOfCup.toString());
     }
 
-    public void delete(Long id) {
-    }
 }
