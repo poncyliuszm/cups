@@ -3,15 +3,12 @@ package pl.poncyliusz.backend.service.cup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.poncyliusz.backend.dto.cup.CupDTO;
 import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.model.Cup;
 import pl.poncyliusz.backend.repository.CategoryRepository;
 import pl.poncyliusz.backend.repository.CupRepository;
-import pl.poncyliusz.backend.utils.ObjectMapperUtils;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,11 +19,6 @@ public class CupService {
     private final CupRepository cupRepository;
     private final CategoryRepository categoryRepository;
 
-    public List<CupDTO> findAll() {
-        List<Cup> cups = cupRepository.findByIsActive(true);
-        cups.sort(Comparator.comparing(Cup::getId));
-        return ObjectMapperUtils.mapAll(cups, CupDTO.class);
-    }
 
     public Cup get(Long id) {
         return cupRepository.findById(id).orElseThrow(() -> new RuntimeException("Nie znaleziono pucharka o id: " + id));

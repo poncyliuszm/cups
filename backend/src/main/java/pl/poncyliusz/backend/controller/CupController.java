@@ -1,6 +1,8 @@
 package pl.poncyliusz.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.poncyliusz.backend.dto.cup.AddCupCommand;
@@ -18,14 +20,15 @@ import java.util.List;
 public class CupController {
 
     private final CupService cupService;
+    private final SearchCupUseCase searchCupUseCase;
     private final RepeatService repeatService;
     private final AddCupUseCase addCupUseCase;
     private final EditCupUseCase editCupUseCase;
     private final DeleteCupUseCase deleteCupUseCase;
 
     @GetMapping
-    public List<CupDTO> list() {
-        return cupService.findAll();
+    public Page<CupDTO> search(Pageable pageable) {
+        return searchCupUseCase.search(pageable);
     }
 
     @GetMapping("/{id}")
