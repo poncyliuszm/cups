@@ -29,6 +29,8 @@ import {CategoryListComponent, DeleteCategoryDialog} from './categories/category
 import {CategoryAddComponent} from './categories/category-add/category-add.component';
 import {CategoryEditComponent} from './categories/category-edit/category-edit.component';
 import {CategoryPreviewComponent} from './categories/category-preview/category-preview.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import {CategoryPreviewComponent} from './categories/category-preview/category-p
     MatIconModule,
     MatDialogModule,
     MatStepperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

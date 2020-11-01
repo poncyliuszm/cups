@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
 @Injectable({
@@ -10,8 +10,12 @@ export class CupService {
   constructor(private http: HttpClient) {
   }
 
-  list() {
-    return this.http.get(environment.appContext + '/cups')
+  findCups(pageNumber, pageSize) {
+    return this.http.get(environment.appContext + '/cups', {
+      params: new HttpParams()
+        .set('page', pageNumber.toString())
+        .set('size', pageSize.toString())
+    });
   }
 
   getCup(cupId: any) {

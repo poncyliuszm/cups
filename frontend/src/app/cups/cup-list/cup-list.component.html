@@ -6,7 +6,11 @@
     </button>
   </div>
 
-  <table [dataSource]="cupsDataSource" class="mat-elevation-z8" mat-table>
+  <div *ngIf="isLoadingResults" class="example-loading-shade">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <table [dataSource]="cups" class="mat-elevation-z8" mat-table>
 
     <ng-container matColumnDef="select">
       <th *matHeaderCellDef mat-header-cell>
@@ -23,11 +27,6 @@
                       [checked]="selection.isSelected(row)">
         </mat-checkbox>
       </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lp">
-      <th *matHeaderCellDef mat-header-cell>Lp.</th>
-      <td *matCellDef="let i = index" mat-cell>{{i + 1}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
@@ -64,4 +63,6 @@
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 
   </table>
+
+  <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
 </mat-card>
