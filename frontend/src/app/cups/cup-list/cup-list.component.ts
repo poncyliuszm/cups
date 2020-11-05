@@ -45,7 +45,6 @@ export class CupListComponent implements OnInit, AfterViewInit {
           return this.cupService.findCups(this.paginator.pageIndex, this.paginator.pageSize)
         }),
         map(data => {
-          // Flip flag to show that loading has finished.
           this.isLoadingResults = false;
           this.resultsLength = data['totalElements'];
 

@@ -1,6 +1,5 @@
-<mat-card>
-
-  <div style="text-align: -webkit-right;">
+<div>
+  <div style="text-align: -webkit-right; margin-top: 3%">
     <button [routerLink]="['/cups/add']" color="primary" mat-raised-button
             style="justify-content: end; margin-bottom: 2%; margin-right: 15%">Dodaj pucharek
     </button>
@@ -10,59 +9,64 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
 
-  <table [dataSource]="cups" class="mat-elevation-z8" mat-table>
+  <div class="mat-elevation-z8 " style="width: 80%; margin: auto; max-height: 600px">
 
-    <ng-container matColumnDef="select">
-      <th *matHeaderCellDef mat-header-cell>
-        <mat-checkbox (change)="$event ? masterToggle() : null"
-                      [aria-label]="checkboxLabel()"
-                      [checked]="selection.hasValue() && isAllSelected()"
-                      [indeterminate]="selection.hasValue() && !isAllSelected()">
-        </mat-checkbox>
-      </th>
-      <td *matCellDef="let row" mat-cell>
-        <mat-checkbox (change)="$event ? selection.toggle(row) : null"
-                      (click)="$event.stopPropagation()"
-                      [aria-label]="checkboxLabel(row)"
-                      [checked]="selection.isSelected(row)">
-        </mat-checkbox>
-      </td>
-    </ng-container>
+    <div class="table-container custom-scroll" style="max-height: 550px;">
+      <table [dataSource]="cups" mat-table>
 
-    <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cell>Nazwa</th>
-      <td *matCellDef="let element" mat-cell>{{element.name}}</td>
-    </ng-container>
+        <ng-container matColumnDef="select">
+          <th *matHeaderCellDef mat-header-cell>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [aria-label]="checkboxLabel()"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </th>
+          <td *matCellDef="let row" mat-cell>
+            <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                          (click)="$event.stopPropagation()"
+                          [aria-label]="checkboxLabel(row)"
+                          [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
 
-    <ng-container matColumnDef="category">
-      <th *matHeaderCellDef mat-header-cell>Kategoria</th>
-      <td *matCellDef="let element" mat-cell>{{element.category.name}}</td>
-    </ng-container>
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef mat-header-cell>Nazwa</th>
+          <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="description">
-      <th *matHeaderCellDef mat-header-cell>Treść pucharka</th>
-      <td *matCellDef="let element" mat-cell>{{element.description}}</td>
-    </ng-container>
+        <ng-container matColumnDef="category">
+          <th *matHeaderCellDef mat-header-cell>Kategoria</th>
+          <td *matCellDef="let element" mat-cell>{{element.category.name}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <th *matHeaderCellDef mat-header-cell style="width: 17%; text-align: center">Operacje</th>
-      <td *matCellDef="let element" mat-cell style="min-width: 220px;">
-        <button (click)="preview(element)" mat-button>
-          <mat-icon color="primary">info</mat-icon>
-        </button>
-        <button (click)="editCup(element)" mat-button>
-          <mat-icon style="color: #f0ad4e">edit</mat-icon>
-        </button>
-        <button (click)="openDeleteDialog(element)" mat-button>
-          <mat-icon color="warn">delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="description">
+          <th *matHeaderCellDef mat-header-cell>Treść pucharka</th>
+          <td *matCellDef="let element" mat-cell>{{element.description}}</td>
+        </ng-container>
 
-    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell style="width: 17%; text-align: center">Operacje</th>
+          <td *matCellDef="let element" mat-cell style="min-width: 220px;">
+            <button (click)="preview(element)" mat-button>
+              <mat-icon color="primary">info</mat-icon>
+            </button>
+            <button (click)="editCup(element)" mat-button>
+              <mat-icon style="color: #f0ad4e">edit</mat-icon>
+            </button>
+            <button (click)="openDeleteDialog(element)" mat-button>
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
 
-  </table>
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 
-  <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
-</mat-card>
+      </table>
+    </div>
+
+    <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
