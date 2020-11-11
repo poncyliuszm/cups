@@ -37,6 +37,10 @@ export class CupListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.getCupList();
+  }
+
+  getCupList() {
     merge(this.paginator.page)
       .pipe(
         startWith({}),
@@ -55,7 +59,6 @@ export class CupListComponent implements OnInit, AfterViewInit {
           return observableOf([]);
         })
       ).subscribe(data => this.cups = data['content']);
-
   }
 
   masterToggle() {
@@ -100,7 +103,7 @@ export class CupListComponent implements OnInit, AfterViewInit {
     this.cupService.deleteCup(cup)
       .subscribe(() => {
         this.snackBar.open('Pucharek został usunięty.', 'Zamknij', {duration: 5000});
-        // this.getCupList();
+        this.getCupList();
       })
   }
 
