@@ -15,14 +15,14 @@
       <table [dataSource]="cups" mat-table>
 
         <ng-container matColumnDef="select">
-          <th *matHeaderCellDef mat-header-cell>
+          <th *matHeaderCellDef mat-header-cell style="min-width: 100px;">
             <mat-checkbox (change)="$event ? masterToggle() : null"
                           [aria-label]="checkboxLabel()"
                           [checked]="selection.hasValue() && isAllSelected()"
                           [indeterminate]="selection.hasValue() && !isAllSelected()">
             </mat-checkbox>
           </th>
-          <td *matCellDef="let row" mat-cell>
+          <td *matCellDef="let row" mat-cell style="min-width: 100px;">
             <mat-checkbox (change)="$event ? selection.toggle(row) : null"
                           (click)="$event.stopPropagation()"
                           [aria-label]="checkboxLabel(row)"
@@ -32,23 +32,23 @@
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef mat-header-cell>Nazwa</th>
-          <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+          <th *matHeaderCellDef mat-header-cell style="min-width: 100px;">Nazwa</th>
+          <td *matCellDef="let element" mat-cell style="flex: 1">{{element.name}}</td>
         </ng-container>
 
         <ng-container matColumnDef="category">
-          <th *matHeaderCellDef mat-header-cell>Kategoria</th>
-          <td *matCellDef="let element" mat-cell>{{element.category.name}}</td>
+          <th *matHeaderCellDef mat-header-cell style="min-width: 100px;">Kategoria</th>
+          <td *matCellDef="let element" mat-cell style="min-width: 100px;">{{element.category.name}}</td>
         </ng-container>
 
         <ng-container matColumnDef="description">
-          <th *matHeaderCellDef mat-header-cell>Treść pucharka</th>
-          <td *matCellDef="let element" mat-cell>{{element.description}}</td>
+          <th *matHeaderCellDef mat-header-cell style="min-width: 100px;">Treść pucharka</th>
+          <td *matCellDef="let element" mat-cell style="min-width: 100px;">{{element.description}}</td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
-          <th *matHeaderCellDef mat-header-cell style="width: 17%; text-align: center">Operacje</th>
-          <td *matCellDef="let element" mat-cell style="min-width: 220px;">
+          <th *matHeaderCellDef mat-header-cell style="width: 17%; text-align: center; min-width: 100px;">Operacje</th>
+          <td *matCellDef="let element" mat-cell style="min-width: 220px; min-width: 100px;">
             <button (click)="preview(element)" mat-button>
               <mat-icon color="primary">info</mat-icon>
             </button>
