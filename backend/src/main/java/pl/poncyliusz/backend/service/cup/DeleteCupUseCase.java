@@ -3,7 +3,7 @@ package pl.poncyliusz.backend.service.cup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.poncyliusz.backend.model.Cup;
-import pl.poncyliusz.backend.repository.CupRepository;
+import pl.poncyliusz.backend.repository.cup.CupRepository;
 
 import java.time.LocalDateTime;
 

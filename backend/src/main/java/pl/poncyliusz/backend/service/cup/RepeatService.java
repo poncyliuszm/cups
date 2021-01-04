@@ -5,7 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pl.poncyliusz.backend.dto.cup.RepeatCupDTO;
 import pl.poncyliusz.backend.model.Cup;
-import pl.poncyliusz.backend.repository.CupRepository;
+import pl.poncyliusz.backend.repository.cup.CupRepository;
 import pl.poncyliusz.backend.utils.ObjectMapperUtils;
 
 import java.util.List;

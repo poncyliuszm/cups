@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.poncyliusz.backend.model.Category;
 import pl.poncyliusz.backend.model.Cup;
 import pl.poncyliusz.backend.repository.CategoryRepository;
-import pl.poncyliusz.backend.repository.CupRepository;
+import pl.poncyliusz.backend.repository.cup.CupRepository;
 
 import java.util.Comparator;
 import java.util.Optional;
