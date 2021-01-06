@@ -5,10 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.poncyliusz.backend.dto.cup.AddCupCommand;
-import pl.poncyliusz.backend.dto.cup.CupDTO;
-import pl.poncyliusz.backend.dto.cup.EditCupCommand;
-import pl.poncyliusz.backend.dto.cup.RepeatCupDTO;
+import pl.poncyliusz.backend.dto.cup.*;
 import pl.poncyliusz.backend.service.cup.*;
 
 import javax.validation.Valid;
@@ -27,8 +24,8 @@ public class CupController {
     private final DeleteCupUseCase deleteCupUseCase;
 
     @GetMapping
-    public Page<CupDTO> search(Pageable pageable) {
-        return searchCupUseCase.search(pageable);
+    public Page<CupDTO> search(Pageable pageable, CupCriteria cupCriteria) {
+        return searchCupUseCase.search(pageable, cupCriteria);
     }
 
     @GetMapping("/{id}")
