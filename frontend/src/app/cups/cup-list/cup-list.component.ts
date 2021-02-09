@@ -18,7 +18,7 @@ export class CupListComponent implements OnInit, AfterViewInit {
 
   cups: [];
   cupsDataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['select', 'name', 'category', 'description', 'actions'];
+  displayedColumns: string[] = ['select', 'name', 'categoryName', 'description', 'actions'];
   selection = new SelectionModel<any>(true, []);
 
   resultsLength = 0;

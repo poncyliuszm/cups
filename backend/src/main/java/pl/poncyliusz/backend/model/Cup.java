@@ -1,6 +1,7 @@
 package pl.poncyliusz.backend.model;
 
 import lombok.Data;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "cups")
 @Data
+@Where(clause = "status = true")
 public class Cup {
 
     @Id

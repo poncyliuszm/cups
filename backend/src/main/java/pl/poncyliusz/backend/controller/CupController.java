@@ -24,7 +24,7 @@ public class CupController {
     private final DeleteCupUseCase deleteCupUseCase;
 
     @GetMapping
-    public Page<CupDTO> search(Pageable pageable, CupCriteria cupCriteria) {
+    public Page<CupListDTO> search(Pageable pageable, CupCriteria cupCriteria) {
         return searchCupUseCase.search(pageable, cupCriteria);
     }
 
