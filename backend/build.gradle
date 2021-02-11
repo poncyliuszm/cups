@@ -26,6 +26,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     compile group: 'org.liquibase', name: 'liquibase-core', version: '3.8.8'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor group: 'org.hibernate', name: 'hibernate-jpamodelgen', version: '5.4.28.Final'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

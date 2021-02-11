@@ -5,7 +5,9 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import pl.poncyliusz.backend.dto.cup.CupListDTO;
+import pl.poncyliusz.backend.model.Category_;
 import pl.poncyliusz.backend.model.Cup;
+import pl.poncyliusz.backend.model.Cup_;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -47,10 +49,10 @@ public class CupSearchRepositoryImpl implements CupSearchRepository {
         Root<Cup> root = query.from(Cup.class);
 
         query.multiselect(
-                root.get("id"),
-                root.get("name"),
-                root.get("category").get("name"),
-                root.get("description")
+                root.get(Cup_.ID),
+                root.get(Cup_.NAME),
+                root.get(Cup_.CATEGORY).get(Category_.NAME),
+                root.get(Cup_.DESCRIPTION)
         );
         query.where(specification.toPredicate(root, query, cb));
         TypedQuery<CupListDTO> typedQuery = entityManager.createQuery(query);
