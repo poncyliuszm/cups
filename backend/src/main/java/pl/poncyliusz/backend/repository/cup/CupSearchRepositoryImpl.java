@@ -55,6 +55,7 @@ public class CupSearchRepositoryImpl implements CupSearchRepository {
                 root.get(Cup_.DESCRIPTION)
         );
         query.where(specification.toPredicate(root, query, cb));
+        query.orderBy(cb.asc(root.get(Cup_.ID)));
         TypedQuery<CupListDTO> typedQuery = entityManager.createQuery(query);
 
         typedQuery.setFirstResult((pageable.getPageNumber()) * pageable.getPageSize());
