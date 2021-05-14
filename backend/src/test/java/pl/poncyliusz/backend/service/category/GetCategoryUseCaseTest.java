@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class CategoryServiceTest {
+class GetCategoryUseCaseTest {
 
     @Mock
     private CategoryRepository categoryRepository;

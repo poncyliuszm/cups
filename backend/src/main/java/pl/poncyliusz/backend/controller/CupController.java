@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CupController {
 
-    private final CupService cupService;
+    private final GetCupUseCase getCupUseCase;
     private final SearchCupUseCase searchCupUseCase;
     private final RepeatService repeatService;
     private final AddCupUseCase addCupUseCase;
@@ -30,7 +30,7 @@ public class CupController {
 
     @GetMapping("/{id}")
     public CupDTO getOne(@PathVariable Long id) {
-        return new CupDTO(cupService.get(id));
+        return new CupDTO(getCupUseCase.getOne(id));
     }
 
     @PostMapping
@@ -51,7 +51,7 @@ public class CupController {
 
     @GetMapping("/lastNameOfCategory/{categoryId}")
     public String getLastNameOfCategory(@PathVariable Long categoryId) {
-        return cupService.getLastNameOfCategory(categoryId);
+        return getCupUseCase.getLastNameOfCategory(categoryId);
     }
 
     @GetMapping("/repeat")

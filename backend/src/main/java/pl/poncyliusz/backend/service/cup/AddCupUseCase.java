@@ -18,7 +18,7 @@ public class AddCupUseCase {
     private final CupRepository cupRepository;
     private final CategoryRepository categoryRepository;
 
-    public void addCup(AddCupCommand addCupCommand) {
+    public Cup addCup(AddCupCommand addCupCommand) {
         Cup cup = new Cup();
         cup.setName(addCupCommand.getName());
         cup.setDescription(addCupCommand.getDescription());
@@ -27,7 +27,7 @@ public class AddCupUseCase {
         setCategory(addCupCommand, cup);
         cup.setSolution(addCupCommand.getSolution());
 
-        cupRepository.save(cup);
+        return cupRepository.save(cup);
     }
 
     private void setCategory(AddCupCommand addCupCommand, Cup cup) {

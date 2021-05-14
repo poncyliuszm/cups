@@ -9,6 +9,7 @@ import pl.poncyliusz.backend.model.Cup;
 import pl.poncyliusz.backend.repository.CategoryRepository;
 import pl.poncyliusz.backend.repository.cup.CupRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 
 @Service
@@ -19,7 +20,7 @@ public class EditCupUseCase {
     private final CategoryRepository categoryRepository;
 
     public void editCup(Long id, EditCupCommand editCupCommand) {
-        Cup cup = cupRepository.findById(id).orElseThrow(() -> new RuntimeException("Nie znaleziono pucharka"));
+        Cup cup = cupRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Nie znaleziono pucharka"));
 
         setCategory(editCupCommand, cup);
         cup.setName(editCupCommand.getName());

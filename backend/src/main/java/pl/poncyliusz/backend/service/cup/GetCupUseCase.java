@@ -8,20 +8,21 @@ import pl.poncyliusz.backend.model.Cup;
 import pl.poncyliusz.backend.repository.CategoryRepository;
 import pl.poncyliusz.backend.repository.cup.CupRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Comparator;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class CupService {
+public class GetCupUseCase {
 
     private final CupRepository cupRepository;
     private final CategoryRepository categoryRepository;
 
 
-    public Cup get(Long id) {
-        return cupRepository.findById(id).orElseThrow(() -> new RuntimeException("Nie znaleziono pucharka o id: " + id));
+    public Cup getOne(Long id) {
+        return cupRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Nie znaleziono pucharka o id: " + id));
     }
 
     public String getLastNameOfCategory(Long categoryId) {
@@ -30,8 +31,6 @@ public class CupService {
 
         Optional<Category> category = categoryRepository.findById(categoryId);
         lastNameOfCategory = category.orElseThrow(() -> new RuntimeException("Nie znaleziono kategorii.")).getName().substring(0, 1);
-
-
 
         Optional<Cup> maxCup = cupRepository.findByCategoryId(categoryId).stream().max(Comparator.comparing(Cup::getId));
         if (maxCup.isPresent()) {
