@@ -8,9 +8,9 @@ import pl.poncyliusz.backend.dto.category.CategoryDTO;
 import pl.poncyliusz.backend.dto.category.CategoryListDTO;
 import pl.poncyliusz.backend.dto.category.EditCategoryCommand;
 import pl.poncyliusz.backend.service.category.AddCategoryUseCase;
-import pl.poncyliusz.backend.service.category.CategoryService;
 import pl.poncyliusz.backend.service.category.DeleteCategoryUseCase;
 import pl.poncyliusz.backend.service.category.EditCategoryUseCase;
+import pl.poncyliusz.backend.service.category.GetCategoryUseCase;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,19 +20,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryController {
 
-    private final CategoryService categoryService;
+    private final GetCategoryUseCase getCategoryUseCase;
     private final AddCategoryUseCase addCategoryUseCase;
     private final EditCategoryUseCase editCategoryUseCase;
     private final DeleteCategoryUseCase deleteCategoryUseCase;
 
     @GetMapping
     public List<CategoryListDTO> list() {
-        return categoryService.findAll();
+        return getCategoryUseCase.findAll();
     }
 
     @GetMapping("/{id}")
     public CategoryDTO getOne(@PathVariable("id") Long id) {
-        return new CategoryDTO(categoryService.findOne(id));
+        return new CategoryDTO(getCategoryUseCase.findOne(id));
     }
 
     @PostMapping

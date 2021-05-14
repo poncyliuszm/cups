@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
+public class GetCategoryUseCase {
 
     private final CategoryRepository categoryRepository;
 
