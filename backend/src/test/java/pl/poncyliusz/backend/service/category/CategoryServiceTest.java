@@ -27,7 +27,7 @@ class CategoryServiceTest {
     private CategoryRepository categoryRepository;
 
     @InjectMocks
-    private CategoryService categoryService;
+    private GetCategoryUseCase getCategoryUseCase;
 
 
     @Test
@@ -35,7 +35,7 @@ class CategoryServiceTest {
         Category category = new Category(1L, "Category name", "Category description", null, true);
         when(categoryRepository.findById(1L)).thenReturn(Optional.of(category));
 
-        Category returnedCategory = categoryService.findOne(1L);
+        Category returnedCategory = getCategoryUseCase.findOne(1L);
 
         assertTrue(Objects.nonNull(returnedCategory));
         assertSame(returnedCategory, category);
@@ -45,7 +45,7 @@ class CategoryServiceTest {
     @DisplayName("should throw EntityNotFoundException")
     void findOneShouldThrowsEntityNotFoundException() {
         when(categoryRepository.findById(1L)).thenReturn(Optional.empty());
-        assertThrows(EntityNotFoundException.class, () -> categoryService.findOne(1L));
+        assertThrows(EntityNotFoundException.class, () -> getCategoryUseCase.findOne(1L));
     }
 
     @Test
@@ -56,7 +56,7 @@ class CategoryServiceTest {
 
         when(categoryRepository.findByIsActive(true)).thenReturn(categories);
         List<CategoryListDTO> exceptionCategories = ObjectMapperUtils.mapAll(categories, CategoryListDTO.class);
-        List<CategoryListDTO> returnedCategories = categoryService.findAll();
+        List<CategoryListDTO> returnedCategories = getCategoryUseCase.findAll();
 
         assertEquals(exceptionCategories, returnedCategories);
     }
@@ -69,7 +69,7 @@ class CategoryServiceTest {
 
         when(categoryRepository.findByIsActive(true)).thenReturn(categories);
         List<CategoryListDTO> exceptionCategories = ObjectMapperUtils.mapAll(categories, CategoryListDTO.class);
-        List<CategoryListDTO> returnedCategories = categoryService.findAll();
+        List<CategoryListDTO> returnedCategories = getCategoryUseCase.findAll();
 
         assertEquals(exceptionCategories, returnedCategories);
     }
